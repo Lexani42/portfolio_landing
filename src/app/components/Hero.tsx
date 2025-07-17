@@ -2,7 +2,7 @@
 
 export default function Hero() {
     return (
-        <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-gray-900 to-black text-white">
+        <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
                 🚀 DevOps that ships. Fast.
             </h1>
