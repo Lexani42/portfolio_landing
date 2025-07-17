@@ -30,7 +30,7 @@ export default function Header() {
         >
             <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 backdrop-blur-md shadow-sm">
                 <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center text-white ">
-                    <div className="text-xl font-extrabold tesxt-sky-400">Oleksii Syrov</div>
+                    <a href='/' className="text-xl font-extrabold text-sky-400">Oleksii Syrov</a>
                     <ul className="flex gap-6 font-semibold text-sm">
                         <li>
                             <a href="#about" className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">About</a>
