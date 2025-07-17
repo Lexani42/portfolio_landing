@@ -33,14 +33,28 @@ export default function Header() {
                     <a href='/' className="text-xl font-extrabold text-sky-400">Oleksii Syrov</a>
                     <ul className="flex gap-6 font-semibold text-sm">
                         <li>
-                            <a href="#about" className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">About</a>
+                            <button onClick={() => scrollToSection('about')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">About</button>
                         </li>
                         <li>
-                            <a href="#contact" className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">Contacts</a>
+                            <button onClick={() => scrollToSection('contact')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">Contacts</button>
                         </li>
                     </ul>
                 </nav>
             </div>
         </header>
     );
+}
+
+function scrollToSection(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+        const sectionHeight = element.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollOffset = element.offsetTop - (viewportHeight - sectionHeight);
+
+        window.scrollTo({
+            top: scrollOffset,
+            behavior: 'smooth',
+        });
+    }
 }
