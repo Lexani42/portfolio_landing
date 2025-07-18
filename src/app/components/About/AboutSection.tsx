@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import classNames from "classnames";
 import technologies from '@/data/technologies.json';
+import AboutAvatar from "./AboutAvatar";
 
 export default function About() {
     const [showMore, setShowMore] = useState(false);
@@ -12,14 +13,7 @@ export default function About() {
 
     return (
         <section id="about" className="min-h-screen px-6 py-20 text-slate-100">
-            <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gray-500 shadow-lg mx-auto">
-                <Image 
-                    src="/images/profile.png"
-                    alt="Oleksii Syrov"
-                    fill
-                    className="object-cover object-bottom"
-                />
-            </div>
+            <AboutAvatar />
             <br />
             <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-4xl font-bold mb-4">
