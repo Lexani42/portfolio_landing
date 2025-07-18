@@ -4,29 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import classNames from "classnames";
-
-const technologies = [
-    {
-        name: 'kubernetes',
-        img: '/images/kubernetes.png',
-        desc: "Lorem"
-    },
-    {
-        name: 'docker',
-        img: '/images/docker.png',
-        desc: "Lorem"
-    },
-    {
-        name: 'terraform',
-        img: '/images/terraform.png',
-        desc: "Lorem"
-    },
-    {
-        name: 'ansible',
-        img: '/images/ansible.png',
-        desc: "Lorem"
-    },
-]
+import technologies from '@/data/technologies.json';
 
 export default function About() {
     const [showMore, setShowMore] = useState(false);
