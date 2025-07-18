@@ -3,56 +3,32 @@
         "name": "kubernetes",
         "img": "/images/kubernetes.png",
         "contents": [
-            {
-                "name": "Lorem",
-                "text": "Ipsum"
-            },
-            {
-                "name": "Lorem2",
-                "text": "Ipsum2"
-            }
+            "Lorem",
+            "Ipsum"
         ]
     },
     {
         "name": "ansible",
         "img": "/images/ansible.png",
         "contents": [
-            {
-                "name": "Lorem",
-                "text": "Ipsum"
-            },
-            {
-                "name": "Lorem2",
-                "text": "Ipsum2"
-            }
+            "Lorem",
+            "Ipsum"
         ]
     },
     {
         "name": "docker",
         "img": "/images/docker.png",
         "contents": [
-            {
-                "name": "Lorem",
-                "text": "Ipsum"
-            },
-            {
-                "name": "Lorem2",
-                "text": "Ipsum2"
-            }
+            "Lorem",
+            "Ipsum"
         ]
     },
     {
         "name": "terraform",
         "img": "/images/terraform.png",
         "contents": [
-            {
-                "name": "Lorem",
-                "text": "Ipsum"
-            },
-            {
-                "name": "Lorem2",
-                "text": "Ipsum2"
-            }
+            "Lorem",
+            "Ipsum"
         ]
     }
 ]
