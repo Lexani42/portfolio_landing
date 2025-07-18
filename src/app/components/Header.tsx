@@ -33,10 +33,10 @@ export default function Header() {
                     <a href='/' className="text-xl font-extrabold text-sky-400">Oleksii Syrov</a>
                     <ul className="flex gap-6 font-semibold text-sm">
                         <li>
-                            <button onClick={() => scrollToSection('about')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">About</button>
+                            <button onClick={() => scrollToSection('about')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">About</button>
                         </li>
                         <li>
-                            <button onClick={() => scrollToSection('contact')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300">Contacts</button>
+                            <button onClick={() => scrollToSection('contact')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Contacts</button>
                         </li>
                     </ul>
                 </nav>
