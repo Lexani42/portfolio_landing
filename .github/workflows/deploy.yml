@@ -43,15 +43,21 @@ jobs:
       IMAGE_NAME: lexani42/portfolio
       
     steps:
-    - name: Decode and write down kubeconfig
+    - name: Deploy using helm
+      if: env.KUBERNETES_MODE == 'true'
       run: |
         echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
-      shell: bash
-      
-    - name: Deploy with helm
-      run: |
         export KUBECONFIG=$PWD/kubeconfig
         helm upgrade --install portfolio ./helm/portfolio \
           --set image.repository=${{ env.IMAGE_NAME }} \
           --set image.tag=${{ env.TAG }}
           --set image.pullPolicy=Always
+      shell: bash
+
+    - name: Deploy using compose
+      if: env.KUBERNETES_MODE != 'true'
+      run: |
+        docker compose down
+        docker compose pull
+        docker compose up -d
+      shell: bash
