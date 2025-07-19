@@ -7,7 +7,7 @@ import AboutTechnologies from "./AboutTechnologies";
 export default function About() {
 
     return (
-        <section id="about" className="min-h-screen px-6 py-20 text-slate-100">
+        <section id="about" className="snap-start snap-always min-h-screen px-6 py-20 text-slate-100">
             <AboutAvatar />
             <br />
             <div className="max-w-4xl mx-auto text-center">

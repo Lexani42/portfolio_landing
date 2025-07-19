@@ -2,7 +2,8 @@
 
 export default function Hero() {
     return (
-        <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 text-white">
+        // snap-start snap-always min-h-screen px-6 py-20 text-slate-100
+        <section id="hero" className="snap-start snap-always min-h-screen flex flex-col justify-center items-center text-center px-6 text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
                 🚀 DevOps that ships. Fast.
             </h1>

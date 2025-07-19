@@ -3,58 +3,61 @@
 import { useEffect, useState } from "react";
 import classNames from 'classnames';
 
-export default function Header() {
-    const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            setIsVisible(lastScrollY > currentScrollY || currentScrollY < 10);
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
-
-    return (
-        <header 
-            className={classNames(
-                'fixed top-0 left-0 w-full z-50 transition-transform duration-300',
-                {
-                    'transform -translate-y-full': !isVisible,
-                    'transform translate-y-0': isVisible,
-                }
-            )}
-        >
-            <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 backdrop-blur-md shadow-sm">
-                <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center text-white ">
-                    <a href='/' className="text-xl font-extrabold text-sky-400">Oleksii Syrov</a>
-                    <ul className="flex gap-6 font-semibold text-sm">
-                        <li>
-                            <button onClick={() => scrollToSection('about')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">About</button>
-                        </li>
-                        <li>
-                            <button onClick={() => scrollToSection('contact')} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Contacts</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    );
+interface HeaderProps {
+  scrollContainerRef: React.RefObject<HTMLDivElement>;
 }
 
-function scrollToSection(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-        const sectionHeight = element.offsetHeight;
-        const viewportHeight = window.innerHeight;
-        const scrollOffset = element.offsetTop - (viewportHeight - sectionHeight);
+export default function Header({ scrollContainerRef }: HeaderProps) {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-        window.scrollTo({
-            top: scrollOffset,
-            behavior: 'smooth',
-        });
-    }
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const handleScroll = () => {
+      const currentScrollY = el.scrollTop;
+      setIsVisible(lastScrollY > currentScrollY || currentScrollY < 10);
+      setLastScrollY(currentScrollY);
+    };
+
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY, scrollContainerRef]);
+
+  return (
+    <header 
+      className={classNames(
+        'fixed top-0 left-0 w-full z-50 transition-transform duration-300',
+        {
+          'transform -translate-y-full': !isVisible,
+          'transform translate-y-0': isVisible,
+        }
+      )}
+    >
+      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 backdrop-blur-md shadow-sm">
+        <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center text-white ">
+          <a href='/' className="text-xl font-extrabold text-sky-400">Oleksii Syrov</a>
+          <ul className="flex gap-6 font-semibold text-sm">
+            <li>
+              <button onClick={() => scrollToSection('about', scrollContainerRef.current)} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">About</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('contact', scrollContainerRef.current)} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Contacts</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
 }
+
+function scrollToSection(id: string, container: HTMLDivElement | null) {
+  if (!container) return;
+  const element = document.getElementById(id);
+  if (element && container) {
+    const top = element.offsetTop;
+    container.scrollTo({ top, behavior: 'smooth' });
+  }
+}
+
