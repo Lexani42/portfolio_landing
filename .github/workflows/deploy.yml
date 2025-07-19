@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: [self-hosted]
 
     env:
@@ -34,7 +34,15 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+    
+    deply:
+      runs-on: [self-hosted]
+
+      env:
+        REGISTRY: docker.io
+        IMAGE_NAME: lexani42/portfolio
       
+      steps:
       - name: Decode and write down kubeconfig
         run: |
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
