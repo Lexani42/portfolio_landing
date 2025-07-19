@@ -35,23 +35,23 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
     
-    deply:
-      runs-on: [self-hosted]
+  deploy:
+    runs-on: [self-hosted]
 
-      env:
-        REGISTRY: docker.io
-        IMAGE_NAME: lexani42/portfolio
+    env:
+      REGISTRY: docker.io
+      IMAGE_NAME: lexani42/portfolio
       
-      steps:
-      - name: Decode and write down kubeconfig
-        run: |
-          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
-        shell: bash
+    steps:
+    - name: Decode and write down kubeconfig
+      run: |
+        echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
+      shell: bash
       
-      - name: Deploy with helm
-        run: |
-          export KUBECONFIG=$PWD/kubeconfig
-          helm upgrade --install portfolio ./helm/portfolio \
-            --set image.repository=${{ env.IMAGE_NAME }} \
-            --set image.tag=${{ env.TAG }}
-            --set image.pullPolicy=Always
+    - name: Deploy with helm
+      run: |
+        export KUBECONFIG=$PWD/kubeconfig
+        helm upgrade --install portfolio ./helm/portfolio \
+          --set image.repository=${{ env.IMAGE_NAME }} \
+          --set image.tag=${{ env.TAG }}
+          --set image.pullPolicy=Always
