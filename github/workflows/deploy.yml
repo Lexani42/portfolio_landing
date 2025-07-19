@@ -1,0 +1,49 @@
+name: deploy portfolio to vps
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]
+
+    env:
+      REGISTRY: docker.io
+      IMAGE_NAME: lexani42/portfolio
+      TAG: latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+      
+      - name: Decode and write down kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
+        shell: bash
+      
+      - name: Deploy with helm
+        run: |
+          export KUBECONFIG=$PWD/kubeconfig
+          helm upgrade --install portfolio ./helm/portfolio \
+            --set image.repository=${{ env.IMAGE_NAME }} \
+            --set image.tag=${{ env.TAG }}
+            --set image.pullPolicy=Always
