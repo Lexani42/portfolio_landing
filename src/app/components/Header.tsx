@@ -45,6 +45,17 @@ export default function Header({ scrollContainerRef }: HeaderProps) {
             <li>
               <button onClick={() => scrollToSection('contact', scrollContainerRef.current)} className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Contacts</button>
             </li>
+            <li>
+              <button className="px-4 oy-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">
+                <a
+                  href="/docs/CV_Oleksii_Syrov_DevOps.pdf"
+                  download
+                  className=""
+                >
+                  Downlaod CV
+                </a>
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
