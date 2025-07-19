@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Link from "next/link";
 
 interface HeaderProps {
-  scrollContainerRef: React.RefObject< | null>;
+  scrollContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function Header({ scrollContainerRef }: HeaderProps) {
