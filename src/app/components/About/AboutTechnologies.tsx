@@ -9,7 +9,6 @@ export default function AboutTechnologies() {
   const [selectedTech, setSelectedTech] = useState<null | typeof technologies[0]>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // drag scroll vars
   let isDown = false;
   let startX = 0;
   let scrollLeft = 0;
@@ -23,7 +22,7 @@ export default function AboutTechnologies() {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDown || !scrollRef.current) return;
       const x = e.pageX - scrollRef.current.offsetLeft;
-      const walk = (x - startX) * 1.5; // drag speed
+      const walk = (x - startX) * 1.5;
       scrollRef.current.scrollLeft = scrollLeft - walk;
     };
 
@@ -39,7 +38,6 @@ export default function AboutTechnologies() {
 
   return (
     <div>
-      {/* Scrollable Carousel */}
       <div
         ref={scrollRef}
         onMouseDown={handleMouseDown}
@@ -49,7 +47,6 @@ export default function AboutTechnologies() {
           msOverflowStyle: 'none',
         }}
       >
-        {/* hide scrollbar (Chrome/Safari) */}
         <style jsx>{`
           div::-webkit-scrollbar {
             display: none;
@@ -75,19 +72,18 @@ export default function AboutTechnologies() {
         </div>
       </div>
 
-      {/* Modal Dialog */}
       <Dialog open={!!selectedTech} onClose={() => setSelectedTech(null)} className="relative z-50">
         <div className="fixed inset-0 bg-black/60" aria-hidden="true"></div>
         <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-gray-800 text-white p-6 rounded-xl max-w-md w-full">
-            <Dialog.Title className="text-xl font-bold mb-2 text-center">
+          <div className="bg-gray-800 text-white p-6 rounded-xl max-w-md w-full">
+            <div className="text-xl font-bold mb-2 text-center">
               {selectedTech?.name}
-            </Dialog.Title>
-            <Dialog.Description>
+            </div>
+            <div>
               {selectedTech?.contents.map((sentence, index) => (
                 <p key={index} className="mb-4">{sentence}</p>
               ))}
-            </Dialog.Description>
+            </div>
             <div className="text-center">
               <button
                 onClick={() => setSelectedTech(null)}
@@ -96,7 +92,7 @@ export default function AboutTechnologies() {
                 Close
               </button>
             </div>
-          </Dialog.Panel>
+          </div>
         </div>
       </Dialog>
     </div>
