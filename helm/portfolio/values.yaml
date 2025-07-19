@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: lexani42/portfolio
   tag: latest
-  pullPolicy: always
+  pullPolicy: Always
 
 service:
   type: NodePort
