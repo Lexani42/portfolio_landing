@@ -22,7 +22,7 @@ export default function AboutDetails() {
                     )}>
                         <div className="border border-sky -600 rounded-xl p-6 bg-gray-700 text-left text-gray-200 shadow-lg">
                             {details.map((paragraph, idx) => (
-                                <p className="mb-4">{paragraph}</p>
+                                <p key={idx} className="mb-4">{paragraph}</p>
                             ))}
                         </div>
                     </div>
