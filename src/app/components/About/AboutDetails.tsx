@@ -9,7 +9,7 @@ export default function AboutDetails() {
         <div>
             <button
                 onClick={() => setShowMore(!showMore)}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition cursor-pointer"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition cursor-pointer font-bold"
             >
                 {showMore ? 'Hide' : 'Get to know me'}
             </button>
