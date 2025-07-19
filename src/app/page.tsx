@@ -14,14 +14,13 @@ export default function Home() {
 
   const sections = ['hero', 'about', 'contact', 'footer'];
 
-  const scrollTo = (index: number) => {
-    const target = document.getElementById(sections[index]);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   useEffect(() => {
+    const scrollTo = (index: number) => {
+      const target = document.getElementById(sections[index]);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
     const container = containerRef.current;
     if (!container) return;
 
