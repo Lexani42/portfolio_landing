@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: later/TBD
+  repository: lexani42/portfolio
   tag: latest
   pullPolicy: always
 
