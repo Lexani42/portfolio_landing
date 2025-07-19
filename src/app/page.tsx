@@ -8,7 +8,7 @@ import Contact from './components/Contacts/ContactsSection';
 import Footer from './components/Footer';
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [sectionIndex, setSectionIndex] = useState(0);
   const [scrolling, setScrolling] = useState(false);
 
