@@ -10,7 +10,7 @@
   },
   {
     "name": "Git",
-    "img": "/images/git.png",
+    "img": "/images/git.svg",
     "contents": [
       "• Implemented Git hooks to enforce code quality and commit standards, improving consistency and reducing developer errors",
       "• Integrated GitLab Flow across teams to streamline collaboration and accelerate the development lifecycle"
@@ -26,7 +26,7 @@
   },
   {
     "name": "Python",
-    "img": "/images/python.jpeg",
+    "img": "/images/python.svg",
     "contents": [
       "• Created automation scripts to eliminate manual tasks, achieving up to 80% time savings",
       "• Developed Jira-Gerrit integration to streamline task tracking and code review processes",
