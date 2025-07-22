@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ $REGISTRY }}/${{ $IMAGE_NAME }}:${{ $TAG }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
   deploy:
     if: ${{ vars.KUBERNETES_MODE == 'true' || vars.COMPOSE_MODE == 'true' }}
@@ -61,8 +61,8 @@ jobs:
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
           export KUBECONFIG=$PWD/kubeconfig
           helm upgrade --install portfolio ./helm/portfolio \
-            --set image.repository=${{ $IMAGE_NAME }} \
-            --set image.tag=${{ $TAG }} \
+            --set image.repository=${{ env.IMAGE_NAME }} \
+            --set image.tag=${{ env.TAG }} \
             --set image.pullPolicy=Always
         shell: bash
 
