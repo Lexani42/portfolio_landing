@@ -14,7 +14,7 @@ env:
 
 jobs:
   docker-build:
-    if: ${{ env.KUBERNETES_MODE == 'true' || env.COMPOSE_MODE == 'true' }}
+    if: ${{ $KUBERNETES_MODE == 'true' || $COMPOSE_MODE == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -37,10 +37,10 @@ jobs:
           file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+          tags: ${{ $REGISTRY }}/${{ $IMAGE_NAME }}:${{ $TAG }}
 
   deploy:
-    if: ${{ env.KUBERNETES_MODE == 'true' || env.COMPOSE_MODE == 'true' }}
+    if: ${{ $KUBERNETES_MODE == 'true' || $COMPOSE_MODE == 'true' }}
     needs: docker-build
     runs-on: ubuntu-latest
 
@@ -54,18 +54,18 @@ jobs:
           version: v3.14.0
 
       - name: Deploy using Helm
-        if: ${{ env.KUBERNETES_MODE == 'true' }}
+        if: ${{ $KUBERNETES_MODE == 'true' }}
         run: |
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
           export KUBECONFIG=$PWD/kubeconfig
           helm upgrade --install portfolio ./helm/portfolio \
-            --set image.repository=${{ env.IMAGE_NAME }} \
-            --set image.tag=${{ env.TAG }} \
+            --set image.repository=${{ $IMAGE_NAME }} \
+            --set image.tag=${{ $TAG }} \
             --set image.pullPolicy=Always
         shell: bash
 
       - name: Deploy using Compose
-        if: ${{ env.COMPOSE_MODE == 'true' }}
+        if: ${{ $COMPOSE_MODE == 'true' }}
         run: |
           docker compose down
           docker compose pull
@@ -73,7 +73,7 @@ jobs:
         shell: bash
 
   wrangler-deploy:
-    if: ${{ env.WRANGLER_MODE == 'true' }}
+    if: ${{ $WRANGLER_MODE == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
