@@ -4,18 +4,15 @@ on:
   push:
     branches: [ main ]
 
-env:
-  REGISTRY: docker.io
-  IMAGE_NAME: lexani42/portfolio
-  TAG: latest
-  KUBERNETES_MODE: ${{ vars.KUBERNETES_MODE }}
-  COMPOSE_MODE: ${{ vars.COMPOSE_MODE }}
-  WRANGLER_MODE: ${{ vars.WRANGLER_MODE }}
-
 jobs:
   docker-build:
-    if: ${{ $KUBERNETES_MODE == 'true' || $COMPOSE_MODE == 'true' }}
+    if: ${{ vars.KUBERNETES_MODE == 'true' || vars.COMPOSE_MODE == 'true' }}
     runs-on: ubuntu-latest
+
+    env:
+      REGISTRY: docker.io
+      IMAGE_NAME: lexani42/portfolio
+      TAG: latest
 
     steps:
       - name: Checkout repo
@@ -40,9 +37,14 @@ jobs:
           tags: ${{ $REGISTRY }}/${{ $IMAGE_NAME }}:${{ $TAG }}
 
   deploy:
-    if: ${{ $KUBERNETES_MODE == 'true' || $COMPOSE_MODE == 'true' }}
+    if: ${{ vars.KUBERNETES_MODE == 'true' || vars.COMPOSE_MODE == 'true' }}
     needs: docker-build
     runs-on: ubuntu-latest
+
+    env:
+      REGISTRY: docker.io
+      IMAGE_NAME: lexani42/portfolio
+      TAG: latest
 
     steps:
       - name: Checkout repo
@@ -54,7 +56,7 @@ jobs:
           version: v3.14.0
 
       - name: Deploy using Helm
-        if: ${{ $KUBERNETES_MODE == 'true' }}
+        if: ${{ vars.KUBERNETES_MODE == 'true' }}
         run: |
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
           export KUBECONFIG=$PWD/kubeconfig
@@ -65,7 +67,7 @@ jobs:
         shell: bash
 
       - name: Deploy using Compose
-        if: ${{ $COMPOSE_MODE == 'true' }}
+        if: ${{ vars.COMPOSE_MODE == 'true' }}
         run: |
           docker compose down
           docker compose pull
@@ -73,7 +75,7 @@ jobs:
         shell: bash
 
   wrangler-deploy:
-    if: ${{ $WRANGLER_MODE == 'true' }}
+    if: ${{ vars.WRANGLER_MODE == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
