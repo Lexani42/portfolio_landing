@@ -3,62 +3,19 @@
 import technologies from '@/data/technologies.json';
 import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 export default function AboutTechnologies() {
   const [selectedTech, setSelectedTech] = useState<null | typeof technologies[0]>(null);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  let isDown = false;
-  let startX = 0;
-  let scrollLeft = 0;
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    isDown = true;
-    startX = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft = scrollRef.current.scrollLeft;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDown || !scrollRef.current) return;
-      const x = e.pageX - scrollRef.current.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUp = () => {
-      isDown = false;
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-  };
-
   return (
     <div>
-      <div
-        ref={scrollRef}
-        onMouseDown={handleMouseDown}
-        className="cursor-grab overflow-x-auto px-2 py-4"
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-        }}
-      >
-        <style jsx>{`
-          div::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
-
-        <div className="flex snap-x snap-mandatory gap-4">
+      <div className="px-2 py-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {technologies.map((tech) => (
             <button
               key={tech.name}
               onClick={() => setSelectedTech(tech)}
-              className="w-[calc(100%/3-1rem)] snap-start flex-shrink-0 h-[100px] bg-gray-800 rounded-xl p-3 flex item-center justify-center hover:bg-sky-200 transition cursor-pointer"
+              className="h-[100px] bg-gray-800 rounded-xl p-3 flex items-center justify-center hover:bg-sky-200 transition cursor-pointer"
             >
               <Image
                 src={tech.img}
