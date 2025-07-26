@@ -1,7 +1,7 @@
 [
   {
     "name": "CI/CD",
-    "img": "/images/cicd.webp",
+    "img": "/images/technologies/cicd.webp",
     "contents": [
       "• Built automated parsing of errors and warnings in autotest pipelines, reducing issue diagnosis time by 70%",
       "• Designed service pipelines to eliminate repetitive tasks, cutting DevOps routine workload by up to 90%",
@@ -10,7 +10,7 @@
   },
   {
     "name": "Git",
-    "img": "/images/git.svg",
+    "img": "/images/technologies/git.svg",
     "contents": [
       "• Implemented Git hooks to enforce code quality and commit standards, improving consistency and reducing developer errors",
       "• Integrated GitLab Flow across teams to streamline collaboration and accelerate the development lifecycle"
@@ -18,7 +18,7 @@
   },
   {
     "name": "Linux",
-    "img": "/images/linux.png",
+    "img": "/images/technologies/linux.png",
     "contents": [
       "• Deployed and maintained a Proxmox VM cluster for scalable virtualization needs",
       "• Configured firewall rules to harden system security and control network access"
@@ -26,7 +26,7 @@
   },
   {
     "name": "Python",
-    "img": "/images/python.svg",
+    "img": "/images/technologies/python.svg",
     "contents": [
       "• Created automation scripts to eliminate manual tasks, achieving up to 80% time savings",
       "• Developed Jira-Gerrit integration to streamline task tracking and code review processes",
@@ -35,7 +35,7 @@
   },
   {
     "name": "Cloud",
-    "img": "/images/cloud.webp",
+    "img": "/images/technologies/cloud.webp",
     "contents": [
       "• Deployed and maintained a scalable AWS EKS cluster to host microservices",
       "• Configured AWS S3 for static website hosting with high availability",
@@ -45,7 +45,7 @@
   },
   {
     "name": "Kubernetes",
-    "img": "/images/kubernetes.png",
+    "img": "/images/technologies/kubernetes.png",
     "contents": [
       "• Deployed and operated high-load on-prem Kubernetes clusters, ensuring fault tolerance and application availability",
       "• Spun up multiple lightweight k3s clusters for small web applications (primarily e-commerce stores)",
@@ -54,7 +54,7 @@
   },
   {
     "name": "Terraform",
-    "img": "/images/terraform.png",
+    "img": "/images/technologies/terraform.png",
     "contents": [
       "• Provisioned complex infrastructure in Azure using Terraform, including services like AppService, CosmosDB, EventGrid, and monitoring",
       "• Deployed Vultr-based nodes to dynamically scale Kubernetes clusters with infrastructure-as-code"
@@ -62,7 +62,7 @@
   },
   {
     "name": "Ansible",
-    "img": "/images/ansible.png",
+    "img": "/images/technologies/ansible.png",
     "contents": [
       "• Automated provisioning of Windows machines, reducing manual work by up to 90% on a weekly basis",
       "• Streamlined Kubernetes node deployments on ProxmoxVM, accelerating setup time by 80%"
@@ -70,7 +70,7 @@
   },
   {
     "name": "Grafana & Prometheus",
-    "img": "/images/grafana.png",
+    "img": "/images/technologies/grafana.png",
     "contents": [
       "• Built full observability stack for web applications, cutting failure rates and downtime by ~70%",
       "• Set up monitoring across heterogeneous clusters (Windows & Linux), boosting incident response speed by 50%",
@@ -79,7 +79,7 @@
   },
   {
     "name": "NGINX",
-    "img": "/images/nginx.svg",
+    "img": "/images/technologies/nginx.svg",
     "contents": [
       "• Configured NGINX as an Ingress controller for production-grade web applications, ensuring secure and efficient routing"
     ]

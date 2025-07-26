@@ -1,0 +1,67 @@
+{
+  "completed": [
+    {
+      "name": "Azure Fundamentals",
+      "issuer": "Microsoft",
+      "date": "April 28, 2023",
+      "badge": "/images/certs/az-900-cert.png",
+      "credlyLink": "https://www.credly.com/badges/6cac913f-5f1d-4e93-8ecf-2bc777440106"
+    }
+  ],
+  "tbd": [
+    {
+      "name": "Azure Administrator Associate",
+      "issuer": "Microsoft",
+      "date": "TBD",
+      "badge": "/images/certs/az-104-cert.png"
+    },
+    {
+      "name": "Azure DevOps Engineer Expert",
+      "issuer": "Microsoft",
+      "date": "TBD",
+      "badge": "/images/certs/az-400-cert.jpg"
+    },
+    {
+      "name": "AWS Certified Solution Architect - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "TBD",
+      "badge": "/images/certs/aws-sa-associate-cert.png"
+    },
+    {
+      "name": "AWS Certified Solution Architect - Professional",
+      "issuer": "Amazon Web Services",
+      "date": "TBD",
+      "badge": "/images/certs/aws-sa-professional-cert.jpeg"
+    },
+    {
+      "name": "AWS Certified DevOps Engineer - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "TBD",
+      "badge": "/images/certs/aws-devops-associate-cert.jpg"
+    },
+    {
+      "name": "AWS Certified DevOps Engineer - Professional",
+      "issuer": "Amazon Web Services",
+      "date": "TBD",
+      "badge": "/images/certs/aws-devops-professional-cert.webp"
+    },
+    {
+      "name": "Terraform Associate",
+      "issuer": "HashiCorp",
+      "date": "TBD",
+      "badge": "/images/certs/terraform-associate-cert.png"
+    },
+    {
+      "name": "CKA: Certified Kubernetes Administrator",
+      "issuer": "The Linux Foundation",
+      "date": "TBD",
+      "badge": "/images/certs/cka-cert.png"
+    },
+    {
+      "name": "CKAD: Certified Kubernetes Application Developer",
+      "issuer": "The Linux Foundation",
+      "date": "TBD",
+      "badge": "/images/certs/ckad-cert.png"
+    }
+  ]
+} 

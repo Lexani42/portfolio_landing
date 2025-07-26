@@ -22,6 +22,9 @@ export default function Header() {
               <a href="#about" className="px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">About</a>
             </li>
             <li>
+              <a href="#certifications" className="px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Certifications</a>
+            </li>
+            <li>
               <a href="#contact" className="px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer">Contacts</a>
             </li>
             <li>
@@ -51,6 +54,15 @@ export default function Header() {
                 className="px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer"
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#certifications" 
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-300 cursor-pointer"
+              >
+                Certifications
               </a>
             </li>
             <li>

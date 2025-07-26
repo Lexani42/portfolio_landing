@@ -2,31 +2,31 @@
     {
         "name": "LinkedIn",
         "link": "https://www.linkedin.com/in/oleksii-syrov/",
-        "img": "/images/linkedin.png"
+        "img": "/images/contacts/linkedin.png"
     },
     {
         "name": "Instagram",
         "link": "https://www.instagram.com/lexxani42/",
-        "img": "/images/instagram.webp"
+        "img": "/images/contacts/instagram.webp"
     },
     {
         "name": "Telegram",
         "link": "http://t.me/lexani42",
-        "img": "/images/telegram.webp"
+        "img": "/images/contacts/telegram.webp"
     },
     {
         "name": "GitHub",
         "link": "https://github.com/Lexani42",
-        "img": "/images/github.png"
+        "img": "/images/contacts/github.png"
     },
     {
         "name": "Email",
         "link": "mailto:lexxani42@gmail.com",
-        "img": "/images/gmail.png"
+        "img": "/images/contacts/gmail.png"
     },
     {
         "name": "Phone",
         "link": "tel:+380680451051",
-        "img": "/images/phone.png"
+        "img": "/images/contacts/phone.png"
     }
 ]
