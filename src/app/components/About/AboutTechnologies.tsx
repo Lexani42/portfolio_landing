@@ -10,18 +10,18 @@ export default function AboutTechnologies() {
   return (
     <div>
       <div className="px-2 py-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {technologies.map((tech) => (
             <button
               key={tech.name}
               onClick={() => setSelectedTech(tech)}
-              className="h-[100px] bg-gray-800 rounded-xl p-3 flex items-center justify-center hover:bg-sky-200 transition cursor-pointer"
+              className="h-16 bg-gray-800 rounded-xl p-2 flex items-center justify-center hover:bg-sky-200 transition cursor-pointer"
             >
               <Image
                 src={tech.img}
                 alt={tech.name}
-                width={64}
-                height={64}
+                width={48}
+                height={48}
                 className="object-contain"
               />
             </button>

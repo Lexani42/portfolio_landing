@@ -15,18 +15,18 @@ export default function Contact() {
           Ready to build something amazing together? Whether it&apos;s discussing cutting-edge DevOps solutions, exploring infrastructure challenges, or just sharing tech stories over coffee — I&apos;m all ears! Let&apos;s turn your ideas into reality.
         </p>
         <div className='px-2 py-4'>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {contacts.map((contact) => (
               <a
                 key={contact.name}
                 href={contact.link}
-                className='h-[100px] bg-gray-800 rounded-xl p-3 flex items-center justify-center hover:bg-sky-200 transition cursor-pointer'
+                className='h-16 bg-gray-800 rounded-xl p-2 flex items-center justify-center hover:bg-sky-200 transition cursor-pointer'
               >
                 <Image 
                   src={contact.img}
                   alt={contact.name}
-                  width={64}
-                  height={64}
+                  width={48}
+                  height={48}
                   className='object-contain'
                 />
               </a>
