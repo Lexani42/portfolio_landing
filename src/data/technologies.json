@@ -48,8 +48,7 @@
     "img": "/images/technologies/kubernetes.png",
     "contents": [
       "• Deployed and operated high-load on-prem Kubernetes clusters, ensuring fault tolerance and application availability",
-      "• Spun up multiple lightweight k3s clusters for small web applications (primarily e-commerce stores)",
-      "• Certification in progress: Preparing for Certified Kubernetes Administrator (CKA)"
+      "• Spun up multiple lightweight k3s clusters for small web applications (primarily e-commerce stores)"
     ]
   },
   {
