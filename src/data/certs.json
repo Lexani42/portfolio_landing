@@ -19,7 +19,7 @@
       "name": "Azure DevOps Engineer Expert",
       "issuer": "Microsoft",
       "date": "TBD",
-      "badge": "/images/certs/az-400-cert.jpg"
+      "badge": "/images/certs/az-400-cert.png"
     },
     {
       "name": "AWS Certified Solution Architect - Associate",
@@ -31,19 +31,13 @@
       "name": "AWS Certified Solution Architect - Professional",
       "issuer": "Amazon Web Services",
       "date": "TBD",
-      "badge": "/images/certs/aws-sa-professional-cert.jpeg"
-    },
-    {
-      "name": "AWS Certified DevOps Engineer - Associate",
-      "issuer": "Amazon Web Services",
-      "date": "TBD",
-      "badge": "/images/certs/aws-devops-associate-cert.jpg"
+      "badge": "/images/certs/aws-sa-professional-cert.png"
     },
     {
       "name": "AWS Certified DevOps Engineer - Professional",
       "issuer": "Amazon Web Services",
       "date": "TBD",
-      "badge": "/images/certs/aws-devops-professional-cert.webp"
+      "badge": "/images/certs/aws-devops-professional-cert.png"
     },
     {
       "name": "Terraform Associate",
